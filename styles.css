@@ -1,0 +1,134 @@
+:root {
+    --color-primary: #ea0eca;
+    --color-secondary: #ac11c0;
+
+    --color-dark: #851dcf;
+
+    --color-btn_hover: #851dcf;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Josefin Sans", sans-serif;
+}
+
+.hide {
+    display: none;
+}
+
+.carGame {
+    width: 100%;
+    height: 100vh;
+    background-image: url("assets/images/alone-stars-purple-background-hd-wallpaper-preview.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.car,
+.enemyCar {
+    width: 50px;
+    height: 70px;
+    position: absolute;
+    bottom: 120px;
+    background-image: url("assets/images/car.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.enemyCar {
+    background-image: url("assets/images/enemy7.png");
+}
+
+.roadLines {
+    width: 10px;
+    height: 100px;
+    position: absolute;
+    background: white;
+    margin-left: 195px;
+    /* show line in center = (gameArea.width / 2) - (roadLines.width / 2) */
+}
+
+.gameArea {
+    width: 400px;
+    height: 100vh;
+    background: #2d3436;
+    margin: auto;
+    position: relative;
+    overflow: hidden;
+    border-right: 7px dashed #c8d6e5;
+    border-left: 7px dashed #c8d6e5;
+}
+
+.score {
+    position: absolute;
+    top: 15px;
+    left: 40px;
+    background: var(--color-dark);
+    width: 300px;
+    line-height: 70px;
+    text-align: center;
+    color: white;
+    font-size: 1.5em;
+    box-shadow: 0 5px 5px #777;
+
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(1px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.startScreen {
+    position: absolute;
+    background-color: #ee5253;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    z-index: 1;
+    text-align: center;
+    border: 1px solid #ff6b6b;
+    padding: 15px;
+    margin: auto;
+    width: 50%;
+    cursor: pointer;
+    letter-spacing: 5;
+    font-size: 20px;
+    word-spacing: 3;
+    line-height: 30px;
+    text-transform: uppercase;
+    box-shadow: 0 5px 5px #777;
+
+    background: rgba(0, 0, 0, 0.547);
+    box-shadow: 0 8px 32px 0 rgba(14, 14, 14, 0.728);
+    backdrop-filter: blur(1px);
+    -webkit-backdrop-filter: blur(1px);
+    border-radius: 10px;
+    border: 1px solid rgba(17, 17, 17, 0.407);
+}
+
+.level button {
+    padding: 7px;
+    font-size: 14px;
+    background: white;
+    border: 1px solid white;
+    border-radius: 10px;
+    width: 80px;
+    cursor: pointer;
+    outline: none;
+    box-shadow: 0 5px 5px #777777a6;
+    transition: 250ms;
+}
+
+.level button:hover {
+    color: white;
+    background: var(--color-btn_hover);
+    border: 1px var(--color-btn_hover);
+}
+
+header {
+    height: 50px;
+    background: #000;
+}
