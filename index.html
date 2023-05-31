@@ -4,35 +4,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CarRacer</title>
-    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
+    <title>GenCarRacing</title>
+    <link rel="icon" type="image/x-icon" href="./assets/images/favicon.png">
+    <!-- -------------------------------- fonts -------------------------------- -->
+    <link href="https://fonts.cdnfonts.com/css/games" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <!-- ----------------------------------------------------------------------- -->
     <link href="styles.css" rel="stylesheet">
 </head>
 
 <body>
-    <header>
+    <!--^ ------------------------- header de la pagina ------------------------- -->
+    <header class="header">
+        <div class="header__score"></div>
+        <div>
+            <h1 class="header__title">GENERATION CAR <br> RACING</h1>
+        </div>
+        <div></div>
+        
+
 
     </header>
-
-    <div class="carGame">
-        <div class="score"></div>
+ <!--^ ------------------------ contenedor del juego ------------------------- -->
+    <main class="containerGame">
+        <!-- <div class="score"></div> -->
         <div class="startScreen">
-            <p>Press here to start <br>
-                Use Arrow keys to move <br>
-                If you hit another car you will lose.
-            </p>
-            <div>Select Level
-                <span class="level">
-                    <button id="easy">Easy</button>
-                    <button id="moderate">Moderate</button>
-                    <button id="difficult">Difficult</button>
-                </span>
+            <p>¿Estas listo para la carrera?</p>
+            
+            <div>Seleciona una dificultad
+                <div class="level">
+                    <button id="easy">Facil</button>
+                    <button id="moderate">Medio</button>
+                    <button id="difficult">Dificil</button>
+                </div>
             </div>
         </div>
         <!-- ------------------------------ Game Area ------------------------------ -->
         <div class="gameArea"></div>
-    </div>
-    <script src="gameHandler.js"></script>
+    </main>
+    <script src="./scriptGame.js"></script>
 </body>
 
 </html>

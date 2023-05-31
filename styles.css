@@ -7,17 +7,143 @@
     --color-btn_hover: #851dcf;
 }
 
+
+@import url('https://fonts.cdnfonts.com/css/games');
+
+/* font-family: 'Games', sans-serif; */
+/* font-family: 'Press Start 2P', cursive;  */
+
+
 * {
     margin: 0;
     padding: 0;
-    font-family: "Josefin Sans", sans-serif;
+    font-family: 'Press Start 2P', cursive;
+}
+html{
+    font-size: 62.5%;
 }
 
 .hide {
     display: none;
 }
 
-.carGame {
+/* -------------------------------------------------------------------------- */
+/*                                   Header                                   */
+/* -------------------------------------------------------------------------- */
+.header  {
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    align-items: center;
+    min-width: 100%;
+    text-align: center;
+    position: absolute;
+    margin: 0 auto;
+    background: rgba(0, 0, 0, 0.547);
+    box-shadow: 0 8px 32px 0 rgba(14, 14, 14, 0.46);
+    backdrop-filter: blur(1px);
+    -webkit-backdrop-filter: blur(1px);
+    border: 1px solid rgba(17, 17, 17, 0.083);
+    z-index: 2; 
+    
+}
+
+.header__title{
+    font-family: 'Games', sans-serif; 
+    font-size: 3.4rem ;
+    letter-spacing: 0.2rem;
+    color: #f4f4f4;
+}
+
+.header__score {
+    width: 30rem;
+    margin: 1.2rem;
+    font-size: 1.6rem;
+    line-height: 70px;
+    text-align: center;
+    color: white;
+
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(1px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* ------------------------------- fin header ------------------------------- */
+
+
+.startScreen {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    z-index: 1;
+    text-align: center;
+    padding: 15px;
+    margin: auto;
+    width: 50%;
+    cursor: pointer;
+    letter-spacing: 5;
+    font-size: 20px;
+    word-spacing: 3;
+    line-height: 30px;
+    text-transform: uppercase;
+    box-shadow: 0 5px 5px #777;
+
+    background: rgba(0, 0, 0, 0.547);
+    box-shadow: 0 8px 32px 0 rgba(14, 14, 14, 0.728);
+    backdrop-filter: blur(1px);
+    -webkit-backdrop-filter: blur(1px);
+    border-radius: 10px;
+    border: 1px solid rgba(17, 17, 17, 0.407);
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                   Botones                                  */
+/* -------------------------------------------------------------------------- */
+
+button,.level button {
+    min-width: 12rem;
+    padding: 1.2rem;
+    font-size: 1.6rem;
+    border: 1px solid white;
+    border-radius: 10px;
+    cursor: pointer;
+    outline: none;
+    background: white;
+    box-shadow: 0 0.4rem 0.5rem #777777a6;
+    transition: 250ms;
+}
+
+ #easy{
+    background: #45d843;
+}
+#moderate{
+    background: #d8a443;
+}
+#difficult{
+    background: #d86b43;
+
+} 
+.btn-reiniciar{
+    background: #f45252;
+}
+
+.btn-reiniciar:hover, .level button:hover {
+    color: white;
+    transform: scale(120% ) ;
+    
+}
+
+/* fin botones -------------------------------------------------------------------------- */
+
+
+/* Fin ventanas -------------------------------------------------------------------------- */
+
+
+.containerGame {
     width: 100%;
     height: 100vh;
     background-image: url("assets/images/alone-stars-purple-background-hd-wallpaper-preview.jpg");
@@ -25,12 +151,13 @@
     background-size: 100% 100%;
 }
 
+
 .car,
 .enemyCar {
-    width: 50px;
-    height: 70px;
+    width: 5rem;
+    height: 7rem;
     position: absolute;
-    bottom: 120px;
+    bottom: 12rem;
     background-image: url("assets/images/car.png");
     background-repeat: no-repeat;
     background-size: 100% 100%;
@@ -60,75 +187,5 @@
     border-left: 7px dashed #c8d6e5;
 }
 
-.score {
-    position: absolute;
-    top: 15px;
-    left: 40px;
-    background: var(--color-dark);
-    width: 300px;
-    line-height: 70px;
-    text-align: center;
-    color: white;
-    font-size: 1.5em;
-    box-shadow: 0 5px 5px #777;
 
-    background: rgba(255, 255, 255, 0.25);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-    backdrop-filter: blur(1px);
-    -webkit-backdrop-filter: blur(4px);
-    border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.18);
-}
 
-.startScreen {
-    position: absolute;
-    background-color: #ee5253;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    z-index: 1;
-    text-align: center;
-    border: 1px solid #ff6b6b;
-    padding: 15px;
-    margin: auto;
-    width: 50%;
-    cursor: pointer;
-    letter-spacing: 5;
-    font-size: 20px;
-    word-spacing: 3;
-    line-height: 30px;
-    text-transform: uppercase;
-    box-shadow: 0 5px 5px #777;
-
-    background: rgba(0, 0, 0, 0.547);
-    box-shadow: 0 8px 32px 0 rgba(14, 14, 14, 0.728);
-    backdrop-filter: blur(1px);
-    -webkit-backdrop-filter: blur(1px);
-    border-radius: 10px;
-    border: 1px solid rgba(17, 17, 17, 0.407);
-}
-
-.level button {
-    padding: 7px;
-    font-size: 14px;
-    background: white;
-    border: 1px solid white;
-    border-radius: 10px;
-    width: 80px;
-    cursor: pointer;
-    outline: none;
-    box-shadow: 0 5px 5px #777777a6;
-    transition: 250ms;
-}
-
-.level button:hover {
-    color: white;
-    background: var(--color-btn_hover);
-    border: 1px var(--color-btn_hover);
-}
-
-header {
-    height: 50px;
-    background: #000;
-}

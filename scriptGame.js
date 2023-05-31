@@ -1,15 +1,15 @@
-const score = document.querySelector('.score');
+const score = document.querySelector('.header__score');
 const startScreen = document.querySelector('.startScreen');
 const gameArea = document.querySelector('.gameArea');
 const level = document.querySelector('.level');
 
-// loading audio files
+// Importo audio files
 
 let gameStart = new Audio();
 let gameOver = new Audio();
 
-gameStart.src = "assets/audio/game_theme.mp3";
-gameOver.src = "assets/audio/gameOver_theme.mp3";
+gameStart.src = "./assets/audios/motorCar.mpeg";
+gameOver.src = "./assets/audios/music.mpeg";
 
 
 const levelSpeed = {easy: 7, moderate: 10, difficult: 14};
@@ -28,11 +28,12 @@ level.addEventListener('click', (e)=> {
 startScreen.addEventListener('click', () => {
     // gameArea.classList.remove('hide');
     startScreen.classList.add('hide');
-    gameArea.innerHTML = "";
+    gameArea.textContent = "";
 
     player.start = true;
     gameStart.play();
     gameStart.loop = true;
+    gameOver.pause()
     player.score = 0;
     window.requestAnimationFrame(gamePlay);
 
@@ -56,12 +57,12 @@ startScreen.addEventListener('click', () => {
         enemyCar.setAttribute('class', 'enemyCar');
         enemyCar.y = ((i+1) * 350) * - 1;
         enemyCar.style.top = enemyCar.y + "px";
-        // enemyCar.style.backgroundColor = randomColor();
         enemyCar.style.left = Math.floor(Math.random() * 350) + "px";
         gameArea.appendChild(enemyCar);
     }
 });
 
+/* -------------------- Funcion genera un color aleatorio ------------------- */
 function randomColor(){
     function c(){
         let hex = Math.floor(Math.random() * 256).toString(16);
@@ -69,11 +70,14 @@ function randomColor(){
     }
     return "#"+c()+c()+c();
 }
+/* -------------------------------------------------------------------------- */
 
-function onCollision(a,b){
-    aRect = a.getBoundingClientRect();
-    bRect = b.getBoundingClientRect();
+//compara las pociciones de los carros cuando se estrellan
+const crashCar =(car1,car2)=>{
+    aRect = car1.getBoundingClientRect(); //devuelve el tamanio y la posiciondel elemento
+    bRect = car2.getBoundingClientRect();
 
+    
     return !((aRect.top >  bRect.bottom) || (aRect.bottom <  bRect.top) ||
         (aRect.right <  bRect.left) || (aRect.left >  bRect.right)); 
 }
@@ -83,7 +87,7 @@ function onGameOver() {
     gameStart.pause();
     gameOver.play();
     startScreen.classList.remove('hide');
-    startScreen.innerHTML = "Game Over <br> Your final score is " + player.score + "<br> Press here to restart the game.";
+    startScreen.innerHTML = `Game Over <br> Su puntaje final es:<b> >> ${player.score} << </b> <br> <button class='btn-reiniciar'>Reiniciar</button>`;
 }
 
 function moveRoadLines(){
@@ -97,11 +101,11 @@ function moveRoadLines(){
     });
 }
 
-function moveEnemyCars(carElement){
+const moveEnemyCars = (carElement)=>{
     let enemyCars = document.querySelectorAll('.enemyCar');
     enemyCars.forEach((item)=> {
 
-        if(onCollision(carElement, item)){
+        if(crashCar(carElement, item)){
             onGameOver();
         }
         if(item.y >= 750){
