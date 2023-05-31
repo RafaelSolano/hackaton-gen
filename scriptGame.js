@@ -138,9 +138,9 @@ const gamePlay = () => {
     window.requestAnimationFrame(gamePlay);
 
     player.score++;
-    const ps = player.score - 1;
+    const ps = player.score ;
     score.innerHTML = "Score: " + ps;
-    console.log(wingame(player.score));
+    wingame(player.score)
   }
 };
 document.addEventListener("keydown", (e) => {
