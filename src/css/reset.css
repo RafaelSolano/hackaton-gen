@@ -1,0 +1,11 @@
+html{
+  /* para que el rem ya no sea 1rem = 16px */
+  font-size: 62.5%;
+  /* ahora 1rem = 10px  // 0.1rem == 1px */
+}
+*{
+  margin: 0;
+  padding: 0 ;
+  box-sizing: border-box;
+}
+
